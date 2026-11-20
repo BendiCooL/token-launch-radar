@@ -187,7 +187,7 @@ type Plan = (p: SnapshotProtocol, ctx: { chains: string; tier: { stake: string; 
 
 const PLANS: Record<string, Plan> = {
   Dexs: (p, c) => [
-    `Swap on ${p.name} at least 3 times a week for 8–12 weeks, rotating pairs on ${c.chains}; steady organic volume is what DEX points and retroactive drops reward. Budget ${c.gas} a month in gas and fees.`,
+    `Swap on ${p.name} at least 3 times a week for 8–12 weeks, rotating pairs on ${c.chains}; steady organic volume is what DEX points and retroactive drops reward. Budget ${c.tier.gas} a month in gas and fees.`,
     `Provide ${c.tier.stake} of liquidity to a top-3 pool on ${p.name} and keep it in range; LP positions are the strongest wallet history a pre-token DEX can record. Review the position weekly, about 20 minutes.`,
     `Trade from one consistent wallet and never wash-trade: ${p.name} can see ${money(p.tvl_usd)} of TVL flow, and sybil patterns are the first thing filtered at a snapshot.`,
     `Follow the protocol's own channels for a points or season announcement; if a campaign opens, shift 70% of your swap volume into the campaign pairs within the first week, when multipliers are richest.`,
@@ -196,12 +196,12 @@ const PLANS: Record<string, Plan> = {
   Lending: (p, c) => [
     `Supply ${c.tier.stake} of a blue-chip asset (ETH or a major stablecoin) to ${p.name} on ${c.chains} and leave it supplied for at least 90 days; lenders with long, unbroken supply history are the classic airdrop cohort.`,
     `Borrow 30–40% against your supply and loop once, keeping the health factor above 2.0; borrowing activity separates real users from parked wallets. Check the position weekly, 15 minutes.`,
-    `Repay and re-borrow around rate changes rather than exiting: continuous utilisation across market cycles is visible in ${p.name}'s records and costs only ${c.gas} in gas per adjustment.`,
+    `Repay and re-borrow around rate changes rather than exiting: continuous utilisation across market cycles is visible in ${p.name}'s records and costs only ${c.tier.gas} in gas per adjustment.`,
     `Use a second market on ${p.name} (a different collateral or chain) once a month so your history spans the protocol, not a single pool.`,
     `Set liquidation alerts and keep a 20% cash buffer aside; the plan only works if the position survives volatility for the full season, roughly 3–6 months.`,
   ],
   Derivatives: (p, c) => [
-    `Trade perpetuals or options on ${p.name} 2–3 sessions a week with small, real positions (${c.tier.stake} margin); consistent volume over 8+ weeks matters more than one large trade. Fees run about ${c.gas} a month at this size.`,
+    `Trade perpetuals or options on ${p.name} 2–3 sessions a week with small, real positions (${c.tier.stake} margin); consistent volume over 8+ weeks matters more than one large trade. Fees run about ${c.tier.gas} a month at this size.`,
     `Stake or deposit into ${p.name}'s counterparty/vault side as well if it offers one: liquidity backers are usually scored separately from traders and are rarer.`,
     `Vary instruments and holding times so your flow reads as genuine use, not wash volume; ${c.trend} protocols still filter coordinated self-trading at distribution.`,
     `Track your cumulative volume, fees and open-interest share in a sheet after each session (10 minutes) and aim for the top decile of retail wallets, not the top of the board.`,
@@ -213,7 +213,7 @@ const FALLBACK: Plan = (p, c) => [
   `Become a real user of ${p.name} on ${c.chains}: complete its core action (deposit, stake, trade or route, per its category ${p.category ?? 'DeFi'}) at least weekly for 10–12 weeks, with ${c.tier.stake} committed.`,
   `Keep the position or activity continuous rather than dipping in once: protocols rewarding early users score duration and recency, and ${p.name} already holds ${money(p.tvl_usd)} of TVL to distribute attention over.`,
   `Spread activity across ${p.chains} where ${p.name} operates, one wallet throughout, so your history covers the deployment footprint a token launch would reward.`,
-  `Budget ${c.gas} a month for gas and fees and log every action with dates in a spreadsheet (10 minutes a week); if a points program opens, your log tells you exactly what to scale.`,
+  `Budget ${c.tier.gas} a month for gas and fees and log every action with dates in a spreadsheet (10 minutes a week); if a points program opens, your log tells you exactly what to scale.`,
   `Join the protocol's official community channels and complete any public testnet, quest or governance steps it runs — cheap signals (under an hour each) that frequently gate retroactive eligibility.`,
 ];
 

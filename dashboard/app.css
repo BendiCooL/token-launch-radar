@@ -64,7 +64,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--teal-dim); b
 .board .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .board td.num { font-weight: 550; }
 .name { font-weight: 650; }
-.slug { color: var(--muted); font-size: 12.5px; }
+.slug { color: var(--muted); font-size: 12.5px; display: block; }
 .badge { display: inline-block; margin-left: 8px; padding: 1px 7px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: .04em; background: rgba(245, 184, 61, .14); color: var(--amber); border: 1px solid rgba(245, 184, 61, .4); vertical-align: 2px; }
 .chains { color: var(--muted); font-size: 12.5px; display: block; }
 .pos { color: var(--teal); }
